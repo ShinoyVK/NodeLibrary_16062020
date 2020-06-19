@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Add Book</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/libscript.js"></script>
+        
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">HOME</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <%for(i=0;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+        <%}%>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="masthead">  
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Add Book
+          <p class="lead"></p>
+        </h1>
+      </div>
+      <div class="col-md-5">
+        <div class="well well-lg"> 
+          <div class="row">
+            <div class="col-sm-12">
+              
+			
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container" >
+  <div class="row" >
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel" >
+        <div class="panel-body">
+          
+          
+          
+          <!--/stories-->
+          <div class="row" >    
+            <form action="/books.ejs" method="POST" target="_self">
+                <table class="table">
+                    <tr>
+                        <td>Book Name</td>
+                        <td><input type="text" class="form-control" pattern="[A-Za-z]{2,}" title="Alphabets Please and minimum 3 characters!!" required></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td><input type="text" class="form-control" pattern="[A-Za-z]{3,}" title="Alphabets Please and minimum 3 characters!!" required></td>
+                    </tr>
+                    <tr>
+                      <td>Publication</td>
+                      <td><input type="text" class="form-control" pattern="[A-Za-z]{3,}" title="Alphabets Please and minimum 3 characters!!" required></td>
+                  </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><textarea name="address" id="" cols="30" rows="10" placeholder="Enter Description Here. . ." class="form-control" required></textarea></td>
+                    </tr>
+                    <tr>
+                      <td>Website</td>
+                      <td><input type="text" class="form-control" pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" title="Enter valid website address" required></td>
+                  </tr>
+                  <tr>
+                      <td>Upload Image</td>
+                      <td><input type="file" name="imageinput" id="imageinput" onchange="loadFile(event)" accept="image/*"></td>
+                  </tr>
+                  <tr>
+                    <td><td><img id="imagepreview"></td></td>
+                  </tr>
+                  <tr>
+                    <td>Upload file</td>
+                    <td><input type="file" name="fileinput" id="fileinput" onchange="loadPdf()" accept=".pdf"></td>
+                </tr>
+                  <tr>
+                      <td></td>
+                      <td><button type="submit" class="btn btn-success" onclick="checkPassword();">Add</button></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td><p id="result"></p></td>
+                  </tr>
+                </table>
+                </form> 
+          </div>
+          <!--/stories-->
+          
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
