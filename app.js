@@ -16,7 +16,7 @@ var nav = [
     },
     {
         name:"ADD BOOK",
-        link:"/addbook"
+        link:"/admin"
     }
 ];  
 
@@ -38,8 +38,9 @@ var form = [
 const booksRouter = require('./src/routes/booksrouter')(nav);
 const authRouter = require('./src/routes/authrouter')(nav);
 const upRouter = require('./src/routes/signuprouter')(nav);
-const addbookRouter = require('./src/routes/addbookrouter')(nav);
+const adminRouter = require('./src/routes/adminRoutes')(nav);
 
+app.use(express.urlencoded({extended:true})); 
 app.use(express.static('./public'));
 
 app.set('view engine','ejs');
@@ -49,7 +50,7 @@ app.set('views','./src/views');
 app.use('/books',booksRouter);
 app.use('/authors',authRouter);
 app.use('/signup',upRouter);
-app.use('/addbook',addbookRouter);
+app.use('/admin',adminRouter);
 
 app.get('/', function(req,res){
     res.render('index', {nav,form});

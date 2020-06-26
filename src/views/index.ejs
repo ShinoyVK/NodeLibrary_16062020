@@ -11,7 +11,8 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/index.js"></script>
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -81,7 +82,7 @@
           
           <!--/stories-->
           <div class="row" >    
-            <form action="signup.html" method="POST" target="_self">
+            <form action="/admin/login" method="POST" target="_self">
               <table class="table">
                   <tr>
                       <td></td>
@@ -94,7 +95,7 @@
                   </tr>
                   <tr>
                       <td>Password</td>
-                      <td><input type="password" id="pass1" class="form-control" pattern=".{8,}"  required title="8 characters minimum"></td>
+                      <td><input type="password" name = "password" id="pass1" class="form-control" pattern=".{8,}"  required title="8 characters minimum"></td>
                   </tr>
                   <tr>
                       <td></td>
@@ -164,6 +165,15 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        const queryStding = window.location.search;
+		const urlParams = new URLSearchParams(queryStding);
+		const product = urlParams.get('message');
+		document.getElementById("result").innerHTML = product;
+        console.log("test"+product);
+      });
+    </script>
 	</body>
 </html>

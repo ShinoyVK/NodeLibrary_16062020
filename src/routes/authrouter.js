@@ -1,9 +1,10 @@
 const express = require('express');
+const Authordata = require('../model/authordata');
 const authRouter = express.Router();
 
 
 function passNav(nav)
-{
+{ /*
     var authors = [
         {
             name:"Elisabeth Badinter",
@@ -33,10 +34,30 @@ function passNav(nav)
             wiki:"https://en.wikipedia.org/wiki/James_Patterson",
             photo:"James-Patterson.jpg"
         }
-    ];
+    ];*/
 
     authRouter.get('/',function(req,res){
+        Authordata.find()
+        .then(function(authors){
         res.render('authors',{nav,authors});
+        })
+    });
+
+    authRouter.get('/:id',function(req,res){
+        var id = req.params.id;
+        Authordata.findOne({_id:id})
+        .then(function(author){
+            res.render('author',{nav,author});
+        })
+    });
+
+    authRouter.post('/update',function(req,res){
+        const id = req.query.id;
+        Authordata.findOne({_id:id})
+        .then(function(author){
+            res.render('updateauthor',{nav,author});
+        })
+        
     });
 
     return authRouter;
